@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block header %}Enjoy statistics!{% endblock %}
+{% block content %}
+<a class="btn btn-default pull-right" href="/">Back to upload</a>
+<div class="row">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Hits</th>
+            <th>Unique</th>
+            <th>Hit/Unique</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in stat %}
+            <tr>
+                <td>{{ item.date }}</td>
+                <td>{{ item.hits }}</td>
+                <td>{{ item.unique }}</td>
+                {% if loop.first %}
+                    <td rowspan="{{ stat|length - 1 }}">{{ stat.hit_per_unique }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

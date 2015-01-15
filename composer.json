@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-0": { "": "src/" }
+  },
+  "require": {
+    "twig/twig": "dev-master"
+  }
+}
